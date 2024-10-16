@@ -1,0 +1,81 @@
+Project Overview: Efficient Data Stream Anomaly Detection
+
+In this project, I focused on developing a robust real-time anomaly detection system tailored for continuous data streams. The motivation behind this endeavor was to address critical issues in various domains, such as finance and system monitoring, where identifying anomalies promptly can prevent significant losses and ensure operational integrity.
+
+Key Objectives
+Simulating a Data Stream: The first step involved creating a synthetic data stream that closely resembles real-world data. This was achieved by introducing seasonal patterns using sine waves, overlaying them with random noise to mimic fluctuations in genuine datasets. Additionally, I incorporated random anomalies to simulate spikes or drops, which are crucial for testing the detection algorithms.
+
+Implementing Anomaly Detection Algorithms: For anomaly detection, I implemented two methodologies: Exponential Moving Average (EMA) and Interquartile Range (IQR). Both methods provide distinct advantages, and I aimed to compare their effectiveness.
+
+Exponential Moving Average (EMA): This method computes the average of the data points, giving more weight to recent values. The implementation calculates the EMA based on a specified window size, enabling the detection of significant deviations from the expected trend. I established thresholds to identify anomalies, focusing on the Z-score of the residuals.
+
+Interquartile Range (IQR): The IQR method is based on statistical principles, identifying outliers by calculating the first (Q1) and third quartiles (Q3) and defining a range for acceptable values. Anomalies are flagged if they fall outside 1.5 times the IQR from these quartiles, making it a robust technique for handling skewed distributions.
+
+Visualization: To enhance the understanding of the results, I created visualizations that depict both the data stream and the detected anomalies. Utilizing Matplotlib, I developed animations that illustrate the detection process in real time, allowing for a clearer insight into how anomalies are identified over time.
+
+Comparison of Algorithms: By employing both EMA and IQR methods on the same data stream, I aimed to assess their relative performance. This involved analyzing the number of detected anomalies and their positioning within the data stream, providing valuable insights into which method may be more effective under different conditions.
+
+Conclusion
+Through this project, I have gained significant insights into the intricacies of anomaly detection in data streams. The combination of EMA and IQR methods not only showcases diverse approaches to detecting anomalies but also highlights the importance of choosing the right method based on the specific characteristics of the data at hand. The visualization tools I developed serve as an essential component in communicating the results effectively, making the findings accessible and actionable.
+
+This project not only equips me with a deeper understanding of anomaly detection techniques but also prepares me for tackling real-world challenges in data analysis and monitoring.
+
+Steps to run ::
+    python -m venv cobble_venv
+    source cobble_venv/bin/activate (for mac/linux)
+    pip install -r requirements.txt
+    python main.py
+
+
+ramesh@MacBook-Air Cobblestone-Energy-Ramesh-IIT-KGP-20EC39050 % python -m venv cobble_venv
+ramesh@MacBook-Air Cobblestone-Energy-Ramesh-IIT-KGP-20EC39050 % source cobble_venv/bin/activate
+(cobble_venv) ramesh@MacBook-Air Cobblestone-Energy-Ramesh-IIT-KGP-20EC39050 % pip install -r requirements.txt
+Collecting numpy (from -r requirements.txt (line 1))
+  Using cached numpy-2.1.2-cp312-cp312-macosx_14_0_arm64.whl.metadata (60 kB)
+Collecting matplotlib (from -r requirements.txt (line 2))
+  Using cached matplotlib-3.9.2-cp312-cp312-macosx_11_0_arm64.whl.metadata (11 kB)
+Collecting pillow (from -r requirements.txt (line 3))
+  Using cached pillow-11.0.0-cp312-cp312-macosx_11_0_arm64.whl.metadata (9.1 kB)
+Collecting ffmpeg (from -r requirements.txt (line 4))
+  Using cached ffmpeg-1.4-py3-none-any.whl
+Collecting contourpy>=1.0.1 (from matplotlib->-r requirements.txt (line 2))
+  Using cached contourpy-1.3.0-cp312-cp312-macosx_11_0_arm64.whl.metadata (5.4 kB)
+Collecting cycler>=0.10 (from matplotlib->-r requirements.txt (line 2))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->-r requirements.txt (line 2))
+  Using cached fonttools-4.54.1-cp312-cp312-macosx_11_0_arm64.whl.metadata (163 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib->-r requirements.txt (line 2))
+  Using cached kiwisolver-1.4.7-cp312-cp312-macosx_11_0_arm64.whl.metadata (6.3 kB)
+Collecting packaging>=20.0 (from matplotlib->-r requirements.txt (line 2))
+  Using cached packaging-24.1-py3-none-any.whl.metadata (3.2 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib->-r requirements.txt (line 2))
+  Using cached pyparsing-3.2.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting python-dateutil>=2.7 (from matplotlib->-r requirements.txt (line 2))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib->-r requirements.txt (line 2))
+  Using cached six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Using cached numpy-2.1.2-cp312-cp312-macosx_14_0_arm64.whl (5.1 MB)
+Using cached matplotlib-3.9.2-cp312-cp312-macosx_11_0_arm64.whl (7.8 MB)
+Using cached pillow-11.0.0-cp312-cp312-macosx_11_0_arm64.whl (3.0 MB)
+Using cached contourpy-1.3.0-cp312-cp312-macosx_11_0_arm64.whl (251 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached fonttools-4.54.1-cp312-cp312-macosx_11_0_arm64.whl (2.3 MB)
+Using cached kiwisolver-1.4.7-cp312-cp312-macosx_11_0_arm64.whl (63 kB)
+Using cached packaging-24.1-py3-none-any.whl (53 kB)
+Using cached pyparsing-3.2.0-py3-none-any.whl (106 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: ffmpeg, six, pyparsing, pillow, packaging, numpy, kiwisolver, fonttools, cycler, python-dateutil, contourpy, matplotlib
+Successfully installed contourpy-1.3.0 cycler-0.12.1 ffmpeg-1.4 fonttools-4.54.1 kiwisolver-1.4.7 matplotlib-3.9.2 numpy-2.1.2 packaging-24.1 pillow-11.0.0 pyparsing-3.2.0 python-dateutil-2.9.0.post0 six-1.16.0
+
+[notice] A new release of pip is available: 24.0 -> 24.2
+[notice] To update, run: pip install --upgrade pip
+(cobble_venv) ramesh@MacBook-Air Cobblestone-Energy-Ramesh-IIT-KGP-20EC39050 % python main.py
+Data stream generation complete.
+Identified 47 anomalies using the IQR method.
+Plot of data stream with anomalies saved as data_stream_with_anomalies_iqr.png.
+Animation saved as output/anomaly_detection_iqr.gif.
+EMA computation complete.
+Identified 45 anomalies using the EMA method.
+Plot of data stream with anomalies saved as data_stream_with_anomalies_ema.png.
+Animation saved as output/anomaly_detection_ema.gif.
